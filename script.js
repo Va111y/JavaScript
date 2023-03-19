@@ -9,8 +9,20 @@ const subtractionResult = Number(firstNumber)-Number(secondNumber);
 const multiplicationResult = Number(firstNumber)*Number(secondNumber);
 const divisionResult = Number(firstNumber)/Number(secondNumber);
 
+if (firstNumber == '' || secondNumber == '') {
+    alert (`Error`)
+} else {
+    alert (`The result of addition ${additionResult}`);
 
-alert(`The result of addition ${additionResult}`);
-alert(`The result of subtraction ${subtractionResult}`);
-alert(`The result of multiplication ${multiplicationResult}`);
-alert(`The result of division ${divisionResult}`)
+    if (Number(secondNumber) > Number(firstNumber)) {
+        confirm (`Are you sure you want to proceed with the operation?`) ? alert(`The result of subtraction ${subtractionResult}`) : null ;
+    } else {
+        alert(`The result of subtraction ${subtractionResult}`)
+    }
+    alert(`The result of multiplication ${multiplicationResult}`);
+    if (secondNumber == 0) {
+        alert (`Division by zero is impossible`)
+            } else {
+        alert (`The result of division ${divisionResult}`)
+            }
+        } 

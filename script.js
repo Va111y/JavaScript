@@ -1,45 +1,84 @@
-// 1. Створити новий масив на 10 елементів з довільними числами. 
-// const newArray = [-10, 35, 20, 2, 0, 85, 77, 41, 45, 54];
-const newArray = [25, 35, null, 17, 15, true, 1, -45, -24, -11];
+// 1. Зробити функції для додавання, віднімання, множення і ділення чисел. В тілі функції обовʼязково добавити перевірку на те, чи є параметр числом
 
-// 2. Написати скрипт для пошуку суми елементів масиву
-let sum = 0;
-for (let i = 0; i < newArray.length; i++){
-    if(typeof newArray[i] == 'number'){  
-    sum = sum + newArray[i];
-    }
+let firstValue = prompt("Введіть перше число");
+let secondValue = prompt("Введіть друге число");
+if(firstValue == "" || secondValue == ""){
+    alert(`Error. Обрахунок неможливий`);
 }
 
-// 3. Написати скрипт, який буде шукати мінімальне та максимальне значення елементів масиву.
-// 4. В пунктах 2 та 3 потрібно робити перевірку на тип елементу масиву і не брати до уваги елементи які не є числами
+function getSum (first, second){
+    if(isNaN(first, second)){
+        alert(`First or second value is not a number!`);
+    }else{
+        let addResult = parseFloat(first) + parseFloat(second);
+        console.log(`Результат додавання: ${addResult}`);
+    }
+}
+getSum(firstValue, secondValue);
+
+function getSub (first, second){
+    if(isNaN(first, second)){
+        console.log(`First or second value is not a number!`);
+    }else{
+    let subResult = first - second;
+    console.log(`Результат віднімання: ${subResult}`);
+    }
+}
+getSub(firstValue, secondValue);
+
+function getMult (first, second){
+    if(isNaN(first, second)){
+        console.log(`First or second value is not a number!`);
+    }else{
+    let multipleResult = first * second;
+    console.log(`Результат множення: ${multipleResult}`);
+    }
+}
+getMult(firstValue, secondValue);
+
+function getDiv (first, second){
+    if(isNaN(first, second)){
+        console.log(`First or second value is not a number!`);
+    }else{
+    let divResult = first / second;
+    if(secondValue == 0){
+        divResult = `Error. На нуль ділити не можна!`;
+    }
+    console.log(`Результат ділення: ${divResult}`);
+    }
+}
+getDiv(firstValue, secondValue);
+
+
+// 2. Зробити функції для пошуку мінімального і максимального числа в масиві. Масив має бути аргументом функції. Для пошуку мінімального та максимального чисел використовуйте різні цикли.
+let testArray = [4, "testText", 7, -1, 0, null, 90, 35, true, 15, -8];
+
+function minValueFunc(arr){
 let minValue = Infinity;
-let maxValue = -Infinity;
-for (let i = 0; i < newArray.length; i++) {
-    if(typeof newArray[i] !== 'number'){
+for (let i = 0; i < arr.length; i++) {
+    if(typeof arr[i] !== 'number'){
         continue;
     }else{
-        
-    if (maxValue < newArray[i]) {
-        maxValue = newArray[i];
-    }
-    if (minValue > newArray[i]) {
-        minValue = newArray[i];
+    if (minValue > arr[i]) {
+        minValue = arr[i];
     }
   } 
 }
-alert (`Сума всіх елементів: ${sum}`);
-alert (`Найбільше значення: ${maxValue}`);
-alert (`Найменше значення: ${minValue}`);
-    
-
-// 5. Написати скрипт який виведе наступне:
-// #
-// ##
-// ###
-// ####
-// #####
-let emptyString = "";
-for(let j = 0; j<5; j++){
-    emptyString += "#";
-    console.log(emptyString);
+console.log (`Найменше значення: ${minValue}`); 
 }
+minValueFunc(testArray);
+
+function maxValueFunc(arr){
+let maxValue = -Infinity;
+for (let j = 0; j < arr.length; j++) {
+    if(typeof arr[j] !== 'number'){
+        continue;
+    }else{
+    if (maxValue < arr[j]) {
+        maxValue = arr[j];
+    }
+  } 
+}
+console.log(`Найбільше значення: ${maxValue}`);
+}
+maxValueFunc(testArray);

@@ -1,45 +1,34 @@
-// 1. Створити новий масив на 10 елементів з довільними числами. 
-// const newArray = [-10, 35, 20, 2, 0, 85, 77, 41, 45, 54];
-const newArray = [25, 35, null, 17, 15, true, 1, -45, -24, -11];
+const arr = [ 65,73,35,2,16,null,91,3,-5,10 ];
 
-// 2. Написати скрипт для пошуку суми елементів масиву
+/*Сума елементів масиву*/ 
 let sum = 0;
-for (let i = 0; i < newArray.length; i++){
-    if(typeof newArray[i] == 'number'){  
-    sum = sum + newArray[i];
+for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number'){
+    sum = sum + arr[i]
+    }
+};
+
+/*Найбільше та найменше значення*/
+let max = arr[0];
+let min = arr[0]; 
+
+for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+        if (max < arr[i]) {
+            max = arr [i];
+        }
+        if (min > arr[i]) {
+            min = arr [i];
+        }
     }
 }
 
-// 3. Написати скрипт, який буде шукати мінімальне та максимальне значення елементів масиву.
-// 4. В пунктах 2 та 3 потрібно робити перевірку на тип елементу масиву і не брати до уваги елементи які не є числами
-let minValue = Infinity;
-let maxValue = -Infinity;
-for (let i = 0; i < newArray.length; i++) {
-    if(typeof newArray[i] !== 'number'){
-        continue;
-    }else{
-        
-    if (maxValue < newArray[i]) {
-        maxValue = newArray[i];
-    }
-    if (minValue > newArray[i]) {
-        minValue = newArray[i];
-    }
-  } 
+/*Ялиночка*/
+let row = '#';
+for (let i = 1; i <= 5; i++) {
+    console.log (row);
+    row += '#';
 }
-alert (`Сума всіх елементів: ${sum}`);
-alert (`Найбільше значення: ${maxValue}`);
-alert (`Найменше значення: ${minValue}`);
-    
 
-// 5. Написати скрипт який виведе наступне:
-// #
-// ##
-// ###
-// ####
-// #####
-let emptyString = "";
-for(let j = 0; j<5; j++){
-    emptyString += "#";
-    console.log(emptyString);
-}
+
+console.log (sum, max, min);

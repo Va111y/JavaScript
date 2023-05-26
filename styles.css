@@ -1,0 +1,68 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --font-size: 20px;
+    --space: 50px;
+    --border: 1px solid #000;
+}
+
+input {
+    appearance: none;
+    border: var(--border);
+    margin-bottom: var(--space);
+    font-size: var(--font-size);
+    text-align: center;
+    width: fit-content;
+}
+
+button {
+    padding: 10px;
+    width: 300px;
+    height: 60px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    font-size: var(--font-size);
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+}
+
+.input-numbers{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons div{
+    display: flex;
+    flex-direction: row;
+    gap: calc(var(--space)*2);
+}
+
+p{
+    font-size: var(--font-size);
+    text-align: center;
+}
+
+h1 {
+    margin: var(--space) 0px;
+    font-size: var(--font-size);
+}
+
+.max-min{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+}
+
+.max-min div {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space);
+}

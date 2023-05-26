@@ -1,41 +1,36 @@
-/*Функція на перевірку порожнього*/
-
-function isObjectEmpty (obj) {
-    return Object.keys(obj).length === 0;
-}
-
-/*Об'єкт з іменем*/
-const user = {
-    name: 'Анастасія',
-    age: 25,
-    sayHello: function() {
-        console.log('Привіт, я ' + this.name +', мені ' + this.age + ' років');
-    }
-};
-
-function isObjectEmpty (obj) {
-    return Object.keys(obj).length === 0;
-}
-
-user.sayHello();
-
-/*Калькулятор*/
-
-const calculator = {
-    sum() {
-      return this.a + this.b;
-    },
+function Accumulator (firstNumber) {
+    this.value = firstNumber;
+  }
   
-    mul() {
-      return this.a * this.b;
-    },
+  Accumulator.prototype.increment = function () {
+    this.value = this.value + 1;
+  }
   
-    ask() {
-      this.a = +prompt('Введіть перше число');
-      this.b = +prompt('Введіть друге число');
-    }
-  };
+  Accumulator.prototype.decrement = function () {
+    this.value = this.value - 1;
+  }
   
-  calculator.ask();
-  alert(calculator.sum());
-  alert(calculator.mul())
+  const accumul = new Accumulator (5)
+  console.log(accumul.value);
+  
+  accumul.increment();
+  console.log(accumul.value);
+  
+  accumul.decrement();
+  console.log(accumul.value);
+  
+  function CancelableAccumulator (firstNumber) {
+    Accumulator.call(this, firstNumber);
+    this.returnValue = firstNumber;
+  }
+  
+  CancelableAccumulator.prototype = Object.create(Accumulator.prototype);
+  CancelableAccumulator.prototype.constructor = CancelableAccumulator;
+  
+  CancelableAccumulator.prototype.clear = function () {
+    this.value = this.returnValue;
+  }
+  
+  const cancel = new CancelableAccumulator(5);
+  cancel.clear();
+  console.log(cancel.value)

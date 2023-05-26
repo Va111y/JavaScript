@@ -1,68 +1,102 @@
-*{
-    font-family: Arial, Helvetica, sans-serif;
+.m-container {
+    padding: 0 10px 0 0;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
 }
 
-:root {
-    --font-size: 20px;
-    --space: 50px;
-    --border: 1px solid #000;
+#test-panel {
+    width: 500px;
+    padding-top: 100px;
+    background: #f7f7f7 center 35px no-repeat;
 }
 
-input {
-    appearance: none;
-    border: var(--border);
-    margin-bottom: var(--space);
-    font-size: var(--font-size);
-    text-align: center;
-    width: fit-content;
-}
-
-button {
-    padding: 10px;
+#test-panel:empty:before {
+    content: "";
     width: 300px;
-    height: 60px;
-    background-color: antiquewhite;
-    border-radius: 10px;
-    font-size: var(--font-size);
-    cursor: pointer;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -150px 0 0 -150px;
+    background-size: contain;
+    animation: spin 0.8s infinite linear;
+    transform-origin: 50% 50%;
 }
 
-.buttons {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space);
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-.input-numbers{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.task{
+    padding: 10px;
+    font-size: 30px;
+    border-top: 1px solid #F1592B;
 }
 
-.buttons div{
-    display: flex;
-    flex-direction: row;
-    gap: calc(var(--space)*2);
+.task:first-child {
+    border-top: none;
 }
 
-p{
-    font-size: var(--font-size);
-    text-align: center;
+.task .task {
+    font-size: 18px;
+    border: none;
 }
 
-h1 {
-    margin: var(--space) 0px;
-    font-size: var(--font-size);
+.sub-task {
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.2;
+    margin: 10px 0;
+}
+.sub-task:before,
+.sub-task:after{
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: calc(50% - 5px);
 }
 
-.max-min{
-    display: flex;
-    flex-direction: column;
-    gap: var(--space);
+.sub-task.failed {
+    color: red;
+}
+.sub-task.failed:before,
+.sub-task.failed:after {
+    background: red;
+    transform-origin: 50% 50%;
+    width: 2px;
+    height: 10px;
+}
+.sub-task.failed:before {
+    transform: rotate(45deg);
+}
+.sub-task.failed:after {
+    transform: rotate(-45deg);
+
+}
+.sub-task.passed {
+    color: green;
 }
 
-.max-min div {
-    display: flex;
-    flex-direction: row;
-    gap: var(--space);
+.sub-task.passed:before {
+    border: 2px solid transparent;
+    border-right-color: green;
+    border-top-color: green;
+    height: 5px;
+    width: 10px;
+    right: calc(100% - 5px);
+    transform: rotate(135deg);
+}
+
+.description.top {
+    line-height: 1.2;
+}
+
+.description.top.no-tests {
+    color: green;
 }

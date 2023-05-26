@@ -1,54 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
-    <div class="input-numbers">
-        <label for="number1">Введіть перше число</label>
-        <input type="number" id="number1">
 
-        <label for="number2">Введіть друге число</label>
-        <input type="number" id="number2">
-    </div>
+    <div class="m-container js-container"></div>
 
-    <div class="buttons">
-        <div>
-            <button id="add-btn">Результат додавання</button>
-            <p id="add-result"></p>
-        </div>
+    <!-- test engine -->
+    <script src="jasmine.js"></script>
+    <script src="jasmine-test-reporter.js"></script>
+    <script src="testManager.js"></script>
 
-        <div>
-            <button id="min-btn">Результат віднімання</button>
-            <p id="min-result"></p>
-        </div>
+    <!-- add your code import here -->
+    <script src="./index.js"></script>
 
-        <div>
-            <button id="mul-btn">Результат множення</button>
-            <p id="mul-result"></p>
-        </div>
+    <!-- add your test import here -->
+    <script src="./index.test.js"></script>
 
-        <div>
-            <button id="div-btn">Результат ділення</button>
-            <p id="div-result"></p>
-        </div>
-    </div>
+    <!-- run our code -->
+    <script>
+        window.onload = function () {
+            window.initiateTest();
+        };
+    </script>
 
-    <div class="max-min">
-        <h1>1, 4, 28, 472, 8652, 3, 84, 76, 2963, 9</h1>
-        <div>
-            <button id="maxNumber-btn">Знайти максимальне число</button>
-            <p id="maxNumber-result"></p>
-        </div>
-        <div>
-            <button id="minNumber-btn">Знайти мінімальне число</button>
-            <p id="minNumber-result"></p>
-        </div>
-    </div>
-    <script src="./script.js"></script>
 </body>
+
 </html>

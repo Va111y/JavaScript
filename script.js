@@ -1,63 +1,43 @@
-/*Функція ділення,моження і т.п.*/
+// 1
 
-function sum(a, b) {
-    if (typeof a == 'number' && typeof b == 'number') {
-    return a + b;
+function calculateAverage(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    };
+    
+    let avg = sum / arr.length;
+    return avg;
+  }
+  
+  let numbers = [1, 2, 3, 4, 5];
+  
+  avg = calculateAverage(numbers);
+  console.log("The average is: " + avg); // має бути 3
+  
+  
+  // 2
+  function User(name, age) {
+      this.name = name;
+    this.age = age;
+  }
+  
+  User.prototype.sayHello = function() {
+      console.log(`Hi. My name is ${this.name} and I'm ${this.age} years old`);
+  }
+  
+  const user = new User('Sherlock', 27);
+  user.sayHello(); // має вивести "Hi. My name is Sherlock and I'm 27 years old"
+  
+  // 3
+  
+  const calculator = function(init = 0) {
+      return function () {
+        return init++;
     }
-}
-
-function difference(a, b) {
-    if (typeof a == 'number' && typeof b == 'number') {
-    return a - b;
-    }
-}
-
-function product(a, b) {
-    if (typeof a == 'number' && typeof b == 'number') {
-    return a * b;
-    }
-}
-
-function quotient(a, b) {
-    if (typeof a == 'number' && typeof b == 'number') {
-    return a / b;
-    }
-}
-
-console.log(sum(10,2));
-console.log(difference(10,2));
-console.log(product(10,2));
-console.log(quotient(10,2));
-
-/*Фунція мінмах значення*/
-
-function findMaxNumber (numbers) {
-    let maxNumber = numbers[0];
-    for (let i = 0; i < numbers.length; i++){
-        if (typeof numbers[i] == 'number') {
-            if (numbers[i] > maxNumber){
-                maxNumber = numbers [i];
-            }
-        }
-        };
-    return maxNumber;
-}
-
-function findMinNumber (numbers) {
-    let minNumber = numbers[0];
-    for (let i = 0; i < numbers.length; i++){
-        if (typeof numbers[i] == 'number') {
-            if (numbers[i] < minNumber){
-                minNumber = numbers [i];
-            }
-        }
-        };
-    return minNumber;
-}
-
-const numbers = [1, 4, 28, 472, 8652, 3, 84, 76, 2963, 9];
-
-const maxNumber = findMaxNumber (numbers);
-const minNumber = findMinNumber (numbers);
-
-console.log(maxNumber, minNumber);
+  }
+  
+  const c = calculator();
+  c();
+  console.log(c()); // має вивести 1
+  console.log(c()); // має вивести 2
